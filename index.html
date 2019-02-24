@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta name="viewport" content="initial-scale=1">
+	<meta charset="utf-8" />
+	<title>szablon</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            margin: 0 auto;
+        }
+        .menu{
+            background-color: purple;
+        }
+        
+        .main{
+            background-color: gold;
+        }
+    </style>
+
+</head>
+<body>
+
+    <svg width="100vw" height="19vh" class="menu">
+        <text x="5vw" y="5vh" font-family="Cursive" fill="#000" stroke="#fff" stroke-width="1" font-size="30">pozostały czas</text>
+        <text x="30vw" y="5vh" font-family="Cursive" fill="#000" stroke="#fff" stroke-width="1" font-size="30">punkty</text>
+
+        <text x="11vw" y="15vh" font-family="Cursive" fill="#000" stroke="#fff" stroke-width="1" font-size="30">60</text>
+        <text x="32.5vw" y="15vh" font-family="Cursive" fill="#000" stroke="#fff" stroke-width="1" font-size="30">0</text>
+    </svg>
+
+    <svg width="100%" height="79vh" class="main">
+      <rect width="2.5%" height="7%" fill="cyan" stroke="green" stroke-width="3" x="50vw" y="40vh" id="rect"/> 
+    </svg>
+
+<script>  
+
+let time = 60;
+let counterPoints = 0;
+
+function countDown(time){
+    setInterval(()=>{
+        if(time > 0){
+            time--;
+            $(".menu text:nth(2)").empty().append(time);
+        }else{
+            $(".menu text:nth(2)").empty().append(0);
+            clearInterval(countDown);
+            $("#rect").hide();
+        }
+    }, 1000);
+}
+countDown(time);
+
+document.getElementById("rect").addEventListener("click", xy);
+
+		function xy(){
+
+            counterPoints = counterPoints + 1;
+            $(".menu text:nth(3)").empty().append(counterPoints);
+
+			$("#rect").hide();
+			setTimeout(function(){
+                $("#rect").attr("x", Math.round(Math.random()*95)+"%");
+                $("#rect").attr("y", Math.round(Math.random()*70)+"%");
+				$("#rect").show();
+
+			}, 1000);
+		}
+</script>
+  
+ </body>
+</html>
