@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
             $("#rect").attr("height", "30px");
         }
 
-        if (mqls[3].matches) {
+        if (mqls[4].matches) {
             $("#time").attr("x", "26%");
             $("#points").attr("x", "67.5%");
         }
