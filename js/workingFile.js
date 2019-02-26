@@ -1,4 +1,4 @@
-let mobile=require("./mobile320width.js");
+let mobile=require("./resolutions.js/index.js");
 
 document.addEventListener("DOMContentLoaded", () => {
 
