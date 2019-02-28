@@ -1,8 +1,18 @@
-let mobile=require("./resolutions.js/index.js");
+let mobile=require("./resolutions.js");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  let time = 60;
+    mobile.resolutions();
+
+    $("#mainContainer").hide();
+
+    $(".mainText").on("click", ()=>{
+        $(".mainText").addClass("anim");
+        $("#intro").delay(2200).fadeOut();
+        $("#mainContainer").delay(2500).fadeIn();
+    });
+
+  let time = 63;
   let counterPoints = 0;
   
   function countDown(time){

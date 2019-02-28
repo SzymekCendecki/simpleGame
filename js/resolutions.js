@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     
+    module.exports.resolutions = function(){
     var resolutions = [ // list of window.matchMedia() queries
         window.matchMedia("(min-width: 320px)"),//0
         window.matchMedia("(min-width: 375px)"),//1
@@ -35,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (resolutions[3].matches){ 
-        $("#time").attr("x", "20%").attr("y", "33%");
-        $("#points").attr("x", "75%").attr("y", "33%");
+        $("#time").attr("x", "20%").attr("y", "65%");
+        $("#points").attr("x", "75%").attr("y", "65%");
 
         $("#rect").attr("width", "25px").attr("height", "25px");
     }   
@@ -65,4 +66,5 @@ for (var i=0; i<resolutions.length; i++){
     mediaqueryresponse(resolutions[i]);
     resolutions[i].addListener(mediaqueryresponse);
 }
+    }
 });

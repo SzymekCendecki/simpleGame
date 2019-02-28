@@ -1,3 +1,5 @@
+//main styles
+
 *{
   margin: 0;
   padding: 0;
@@ -12,6 +14,40 @@ html, body, #mainContainer{
   height: 100%;
 }
 
+//styles for intro
+body{
+  background-color: #a3a3c2;			
+}
+
+#intro{
+  margin: 0 auto;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.mainText{
+	font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px #7e7e7e, 2px 2px #696969, 3px 3px #545454, 4px 4px #3f3f3f;
+  font-family: 'Titan One', cursive;
+}
+
+.text{ color: #009933; font-size: 4em; }
+.text2{ color: #000099; font-size: 1.5em; }
+
+.anim{ animation: anim 2s linear; animation-fill-mode: forwards; }
+
+@keyframes anim{
+  0%{ }
+  100%{ filter: blur(6px); opacity: 0; }
+}
+
+//styles for game
 #mainContainer{
   display: flex;
   flex-wrap: wrap;
