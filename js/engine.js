@@ -83,15 +83,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     mobile.resolutions();
 
-    $("#mainContainer").hide();
+    $("#mainContainer, #newGame").hide();
 
-    $(".mainText").on("click", function () {
-        $(".mainText").addClass("anim");
-        $("#intro").delay(2200).fadeOut();
-        $("#mainContainer").delay(2500).fadeIn();
-    });
-
-    var time = 63;
+    var time = 60;
     var counterPoints = 0;
 
     function countDown(time) {
@@ -103,15 +97,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 $(".menu text:nth(2)").empty().append(0);
                 clearInterval(countDown);
                 $("#rect").hide();
+                $("#newGame").show();
+
+                $("#newGame").on("click", function () {
+                    time = 60;
+                    counterPoints = 0;
+                    $(".menu text:nth(2)").empty().append(time);
+                    $(".menu text:nth(3)").empty().append(counterPoints);
+                    $("#newGame").hide();
+                    $("#rect").show();
+                });
             }
         }, 1000);
     }
-    countDown(time);
+
+    $(".mainText").on("click", function () {
+        $(".mainText").addClass("anim");
+        $("#intro").delay(2200).fadeOut();
+        $("#mainContainer").delay(2500).fadeIn();
+
+        setTimeout(function () {
+            countDown(time);
+        }, 2500);
+    });
 
     document.getElementById("rect").addEventListener("click", xy);
 
     function xy() {
-
         counterPoints = counterPoints + 1;
         $(".menu text:nth(3)").empty().append(counterPoints);
 
